@@ -1,0 +1,63 @@
+.preview-container {
+  display: flex;
+  flex: 1;
+  height: 100%;
+}
+
+.preview-canvas {
+  flex: 1;
+  min-height: 400px;
+}
+
+.preview-info {
+  width: 320px;
+  padding: 1.5rem;
+  background: var(--bg-secondary);
+  border-left: 1px solid var(--border);
+  overflow-y: auto;
+}
+
+.preview-info h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.info-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.info-item label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+}
+
+.info-item value {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.info-item .mono {
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 0.9rem;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
