@@ -9,8 +9,10 @@ interface PeriodicTableProps {
 
 // Standard periodic table layout positions (period, group)
 const positions: Record<number, { row: number; col: number }> = {
+  // Period 1
   1: { row: 1, col: 1 },
   2: { row: 1, col: 18 },
+  // Period 2
   3: { row: 2, col: 1 },
   4: { row: 2, col: 2 },
   5: { row: 2, col: 13 },
@@ -19,7 +21,15 @@ const positions: Record<number, { row: number; col: number }> = {
   8: { row: 2, col: 16 },
   9: { row: 2, col: 17 },
   10: { row: 2, col: 18 },
-  // Will expand as more elements are added
+  // Period 3
+  11: { row: 3, col: 1 },
+  12: { row: 3, col: 2 },
+  13: { row: 3, col: 13 },
+  14: { row: 3, col: 14 },
+  15: { row: 3, col: 15 },
+  16: { row: 3, col: 16 },
+  17: { row: 3, col: 17 },
+  18: { row: 3, col: 18 },
 };
 
 export function PeriodicTable({ elements, selected, onSelect }: PeriodicTableProps) {
@@ -55,6 +65,7 @@ export function PeriodicTable({ elements, selected, onSelect }: PeriodicTablePro
         <span className="legend-item metalloid">Metalloid</span>
         <span className="legend-item halogen">Halogen</span>
         <span className="legend-item noble-gas">Noble Gas</span>
+        <span className="legend-item post-transition">Post-transition</span>
       </div>
     </div>
   );

@@ -81,6 +81,7 @@
 .element-cell.halogen { background: rgba(0, 210, 211, 0.15); }
 .element-cell.noble-gas { background: rgba(72, 219, 251, 0.15); }
 .element-cell.transition-metal { background: rgba(84, 160, 255, 0.15); }
+.element-cell.post-transition { background: rgba(95, 39, 205, 0.15); }
 
 .legend {
   display: flex;
@@ -105,3 +106,4 @@
 .legend-item.metalloid { border-left: 3px solid var(--metalloid); }
 .legend-item.halogen { border-left: 3px solid var(--halogen); }
 .legend-item.noble-gas { border-left: 3px solid var(--noble-gas); }
+.legend-item.post-transition { border-left: 3px solid var(--post-transition); }
