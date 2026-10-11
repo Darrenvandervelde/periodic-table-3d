@@ -1,0 +1,107 @@
+.periodic-table-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  overflow: auto;
+}
+
+.periodic-table {
+  display: grid;
+  grid-template-columns: repeat(18, minmax(60px, 1fr));
+  grid-template-rows: repeat(7, minmax(70px, 1fr));
+  gap: 4px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.element-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border-radius: 6px;
+  background: var(--bg-tertiary);
+  border: 2px solid transparent;
+  color: var(--text-primary);
+  transition: all 0.15s ease;
+  min-height: 70px;
+  position: relative;
+}
+
+.element-cell:hover {
+  transform: scale(1.08);
+  z-index: 2;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  border-color: var(--el-color, var(--accent));
+}
+
+.element-cell.selected {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent);
+  z-index: 3;
+}
+
+.cell-number {
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  align-self: flex-start;
+  position: absolute;
+  top: 4px;
+  left: 6px;
+}
+
+.cell-symbol {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.cell-name {
+  font-size: 0.55rem;
+  color: var(--text-secondary);
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.cell-mass {
+  font-size: 0.55rem;
+  color: var(--text-secondary);
+}
+
+/* Category tints */
+.element-cell.alkali-metal { background: rgba(255, 107, 107, 0.15); }
+.element-cell.alkaline-earth { background: rgba(255, 159, 67, 0.15); }
+.element-cell.nonmetal { background: rgba(16, 172, 132, 0.15); }
+.element-cell.metalloid { background: rgba(1, 163, 164, 0.15); }
+.element-cell.halogen { background: rgba(0, 210, 211, 0.15); }
+.element-cell.noble-gas { background: rgba(72, 219, 251, 0.15); }
+.element-cell.transition-metal { background: rgba(84, 160, 255, 0.15); }
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.legend-item {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  background: var(--bg-tertiary);
+}
+
+.legend-item.alkali-metal { border-left: 3px solid var(--alkali-metal); }
+.legend-item.alkaline-earth { border-left: 3px solid var(--alkaline-earth); }
+.legend-item.nonmetal { border-left: 3px solid var(--nonmetal); }
+.legend-item.metalloid { border-left: 3px solid var(--metalloid); }
+.legend-item.halogen { border-left: 3px solid var(--halogen); }
+.legend-item.noble-gas { border-left: 3px solid var(--noble-gas); }

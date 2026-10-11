@@ -1,0 +1,52 @@
+:root {
+  --bg-primary: #0a0a1a;
+  --bg-secondary: #12122a;
+  --bg-tertiary: #1a1a3a;
+  --text-primary: #e8e8f0;
+  --text-secondary: #a0a0c0;
+  --accent: #4fc3f7;
+  --accent-hover: #29b6f6;
+  --border: #2a2a4a;
+  --success: #66bb6a;
+  --warning: #ffa726;
+  --danger: #ef5350;
+
+  /* Category colors */
+  --alkali-metal: #ff6b6b;
+  --alkaline-earth: #ff9f43;
+  --transition-metal: #54a0ff;
+  --post-transition: #5f27cd;
+  --metalloid: #01a3a4;
+  --nonmetal: #10ac84;
+  --halogen: #00d2d3;
+  --noble-gas: #48dbfb;
+  --lanthanide: #c44569;
+  --actinide: #f368e0;
+  --unknown: #8395a7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-family: inherit;
+}
+
+input, select {
+  font-family: inherit;
+}
