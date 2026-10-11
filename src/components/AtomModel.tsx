@@ -7,19 +7,23 @@ interface AtomModelProps {
   element: Element;
 }
 
-// Simple Bohr-like model: nucleus + electron shells
-function getShellElectrons(config: string): number[] {
-  const total = parseInt(config.match(/\d+/g)?.pop() || '1', 10) || 1;
-  if (total <= 2) return [total];
-  if (total <= 10) return [2, total - 2];
-  if (total <= 18) return [2, 8, total - 10];
-  if (total <= 36) return [2, 8, 18, total - 28];
-  return [2, 8, 18, 18, total - 46];
+// Bohr-model shell capacities: 2, 8, 18, 32...
+function getShellElectrons(atomicNumber: number): number[] {
+  const capacities = [2, 8, 18, 32, 32, 18, 8];
+  const shells: number[] = [];
+  let remaining = atomicNumber;
+  for (const cap of capacities) {
+    if (remaining <= 0) break;
+    const take = Math.min(cap, remaining);
+    shells.push(take);
+    remaining -= take;
+  }
+  return shells.length ? shells : [1];
 }
 
 export function AtomModel({ element }: AtomModelProps) {
   const groupRef = useRef<THREE.Group>(null);
-  const shells = useMemo(() => getShellElectrons(element.electronConfiguration), [element]);
+  const shells = useMemo(() => getShellElectrons(element.atomicNumber), [element.atomicNumber]);
 
   useFrame((_, delta) => {
     if (groupRef.current) {
@@ -70,6 +74,7 @@ export function AtomModel({ element }: AtomModelProps) {
 
         return (
           <group key={shellIdx}>
+            {/* Orbit ring */}
             <mesh rotation={[Math.PI / 2, 0, 0]}>
               <torusGeometry args={[radius, 0.015, 8, 64]} />
               <meshBasicMaterial color="#4fc3f7" transparent opacity={0.3} />
