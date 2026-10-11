@@ -9,9 +9,9 @@ Interactive 3D Periodic Table desktop application built with:
 
 ## Features
 
-- Full interactive periodic table grid
-- 3D atomic model preview for every element (Bohr-style visualization)
-- Element combination lab – combine elements to discover common compounds
+- Interactive periodic table grid (Periods 1–4 – **36 elements**, H–Kr)
+- 3D Bohr-model atom preview with correct shell filling
+- Element combination lab with many known compounds
 - Data stored in clean JSON (`src/data/elements.json`)
 - Application settings via `settings.ini`
 - Dark modern UI with category color coding
@@ -32,7 +32,7 @@ periodic-table-3d/
 ├── public/
 ├── src/
 │   ├── components/    # UI & 3D components
-│   ├── data/          # elements.json
+│   ├── data/          # elements.json (36 elements)
 │   ├── styles/
 │   ├── types/
 │   └── ...
@@ -43,11 +43,11 @@ periodic-table-3d/
 
 ## Roadmap
 
-- Expand to all 118 elements
-- More realistic electron cloud visualizations
-- Reaction animations in the combination tool
-- Export / save combinations
-- Themes via settings.ini
+- [x] Periods 1–4 (H–Kr)
+- [ ] Periods 5–7 + lanthanides/actinides
+- [ ] More realistic electron cloud visualizations
+- [ ] Reaction animations in the combination tool
+- [ ] Themes via settings.ini
 
 ## License
 

@@ -106,4 +106,5 @@
 .legend-item.metalloid { border-left: 3px solid var(--metalloid); }
 .legend-item.halogen { border-left: 3px solid var(--halogen); }
 .legend-item.noble-gas { border-left: 3px solid var(--noble-gas); }
+.legend-item.transition-metal { border-left: 3px solid var(--transition-metal); }
 .legend-item.post-transition { border-left: 3px solid var(--post-transition); }

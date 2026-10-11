@@ -30,9 +30,25 @@ const positions: Record<number, { row: number; col: number }> = {
   16: { row: 3, col: 16 },
   17: { row: 3, col: 17 },
   18: { row: 3, col: 18 },
-  // Period 4 s-block
+  // Period 4
   19: { row: 4, col: 1 },
   20: { row: 4, col: 2 },
+  21: { row: 4, col: 3 },
+  22: { row: 4, col: 4 },
+  23: { row: 4, col: 5 },
+  24: { row: 4, col: 6 },
+  25: { row: 4, col: 7 },
+  26: { row: 4, col: 8 },
+  27: { row: 4, col: 9 },
+  28: { row: 4, col: 10 },
+  29: { row: 4, col: 11 },
+  30: { row: 4, col: 12 },
+  31: { row: 4, col: 13 },
+  32: { row: 4, col: 14 },
+  33: { row: 4, col: 15 },
+  34: { row: 4, col: 16 },
+  35: { row: 4, col: 17 },
+  36: { row: 4, col: 18 },
 };
 
 export function PeriodicTable({ elements, selected, onSelect }: PeriodicTableProps) {
@@ -68,6 +84,7 @@ export function PeriodicTable({ elements, selected, onSelect }: PeriodicTablePro
         <span className="legend-item metalloid">Metalloid</span>
         <span className="legend-item halogen">Halogen</span>
         <span className="legend-item noble-gas">Noble Gas</span>
+        <span className="legend-item transition-metal">Transition</span>
         <span className="legend-item post-transition">Post-transition</span>
       </div>
     </div>
