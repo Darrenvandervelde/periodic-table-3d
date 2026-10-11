@@ -29,27 +29,27 @@ export function ElementPreview({ element }: ElementPreviewProps) {
         <div className="info-grid">
           <div className="info-item">
             <label>Atomic Number</label>
-            <value>{element.atomicNumber}</value>
+            <span className="value">{element.atomicNumber}</span>
           </div>
           <div className="info-item">
             <label>Atomic Mass</label>
-            <value>{element.atomicMass}</value>
+            <span className="value">{element.atomicMass}</span>
           </div>
           <div className="info-item">
             <label>Electron Configuration</label>
-            <value className="mono">{element.electronConfiguration}</value>
+            <span className="value mono">{element.electronConfiguration}</span>
           </div>
           <div className="info-item">
             <label>Category</label>
-            <value className="capitalize">{element.category.replace('-', ' ')}</value>
+            <span className="value capitalize">{element.category.replace('-', ' ')}</span>
           </div>
           <div className="info-item">
             <label>State at STP</label>
-            <value className="capitalize">{element.state}</value>
+            <span className="value capitalize">{element.state}</span>
           </div>
           <div className="info-item">
             <label>Discovery</label>
-            <value>{element.discoveryYear ?? 'Ancient'}</value>
+            <span className="value">{element.discoveryYear ?? 'Ancient'}</span>
           </div>
         </div>
         <p className="desc">{element.description}</p>
