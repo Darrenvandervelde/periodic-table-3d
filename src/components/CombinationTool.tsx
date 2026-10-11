@@ -9,6 +9,7 @@ interface CombinationToolProps {
   allElements: Element[];
 }
 
+// Simple known combinations for demo
 const KNOWN_COMPOUNDS: Record<string, { name: string; description: string }> = {
   'H,O': { name: 'Water (H₂O)', description: 'The most essential compound for life on Earth.' },
   'H,H,O': { name: 'Water (H₂O)', description: 'The most essential compound for life on Earth.' },
@@ -22,6 +23,14 @@ const KNOWN_COMPOUNDS: Record<string, { name: string; description: string }> = {
   'N,N': { name: 'Nitrogen Gas (N₂)', description: 'Makes up most of Earth\'s atmosphere.' },
   'H,H': { name: 'Hydrogen Gas (H₂)', description: 'The lightest molecule.' },
   'F,H': { name: 'Hydrogen Fluoride (HF)', description: 'A highly reactive and corrosive compound.' },
+  'Mg,O': { name: 'Magnesium Oxide (MgO)', description: 'A refractory material used in furnace linings.' },
+  'Al,O': { name: 'Aluminium Oxide (Al₂O₃)', description: 'Corundum – used in abrasives and sapphire.' },
+  'Si,O': { name: 'Silicon Dioxide (SiO₂)', description: 'Quartz / silica – the main component of sand and glass.' },
+  'P,O': { name: 'Phosphorus Pentoxide (P₄O₁₀)', description: 'A powerful dehydrating agent.' },
+  'S,O': { name: 'Sulfur Dioxide (SO₂)', description: 'A toxic gas produced by burning sulfur or fossil fuels.' },
+  'Cl,Cl': { name: 'Chlorine Gas (Cl₂)', description: 'Diatomic chlorine used for water treatment.' },
+  'Na,O': { name: 'Sodium Oxide (Na₂O)', description: 'A basic oxide that reacts vigorously with water.' },
+  'Mg,Cl': { name: 'Magnesium Chloride (MgCl₂)', description: 'Used in de-icing and as a magnesium supplement.' },
 };
 
 function getKey(symbols: string[]): string {
@@ -102,10 +111,11 @@ export function CombinationTool({ selection, onClear, onRemove }: CombinationToo
         <h3>Try these combinations</h3>
         <ul>
           <li>H + O → Water</li>
+          <li>Na + Cl → Table salt</li>
+          <li>Mg + O → Magnesium oxide</li>
+          <li>Si + O → Silicon dioxide</li>
           <li>C + O → Carbon oxides</li>
-          <li>N + H → Ammonia</li>
-          <li>H + Cl → Hydrogen chloride</li>
-          <li>O + O → Oxygen gas</li>
+          <li>Cl + Cl → Chlorine gas</li>
         </ul>
         <p className="note">More compounds and reaction animations will be added as the project grows.</p>
       </div>
