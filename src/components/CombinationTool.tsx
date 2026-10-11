@@ -9,7 +9,6 @@ interface CombinationToolProps {
   allElements: Element[];
 }
 
-// Simple known combinations for demo
 const KNOWN_COMPOUNDS: Record<string, { name: string; description: string }> = {
   'H,O': { name: 'Water (H₂O)', description: 'The most essential compound for life on Earth.' },
   'H,H,O': { name: 'Water (H₂O)', description: 'The most essential compound for life on Earth.' },
@@ -31,6 +30,12 @@ const KNOWN_COMPOUNDS: Record<string, { name: string; description: string }> = {
   'Cl,Cl': { name: 'Chlorine Gas (Cl₂)', description: 'Diatomic chlorine used for water treatment.' },
   'Na,O': { name: 'Sodium Oxide (Na₂O)', description: 'A basic oxide that reacts vigorously with water.' },
   'Mg,Cl': { name: 'Magnesium Chloride (MgCl₂)', description: 'Used in de-icing and as a magnesium supplement.' },
+  'Fe,O': { name: 'Iron Oxide (Fe₂O₃)', description: 'Rust / haematite – the main iron ore.' },
+  'Cu,O': { name: 'Copper Oxide (CuO)', description: 'Used in ceramics and as a pigment.' },
+  'Zn,O': { name: 'Zinc Oxide (ZnO)', description: 'Used in sunscreens, rubber and ceramics.' },
+  'Fe,S': { name: 'Iron Sulfide (FeS₂)', description: 'Pyrite – fool\'s gold.' },
+  'Cu,S': { name: 'Copper Sulfide (Cu₂S)', description: 'An important copper ore mineral.' },
+  'Ti,O': { name: 'Titanium Dioxide (TiO₂)', description: 'Widely used white pigment and UV blocker.' },
 };
 
 function getKey(symbols: string[]): string {
@@ -39,7 +44,6 @@ function getKey(symbols: string[]): string {
 
 export function CombinationTool({ selection, onClear, onRemove }: CombinationToolProps) {
   const [result, setResult] = useState<CombinationResult | null>(null);
-
   const canCombine = selection.length >= 2;
 
   const attemptCombine = () => {
@@ -47,7 +51,6 @@ export function CombinationTool({ selection, onClear, onRemove }: CombinationToo
     const symbols = selection.map(e => e.symbol);
     const key = getKey(symbols);
     const known = KNOWN_COMPOUNDS[key];
-
     if (known) {
       setResult({
         formula: known.name.split('(')[1]?.replace(')', '') || symbols.join(''),
@@ -61,7 +64,7 @@ export function CombinationTool({ selection, onClear, onRemove }: CombinationToo
         formula: symbols.join(''),
         name: 'Unknown Combination',
         elements: symbols,
-        description: 'This combination is not in the current knowledge base. Try common pairs like H+O, C+O, Na+Cl.',
+        description: 'This combination is not in the current knowledge base. Try common pairs like H+O, Fe+O, Cu+O, Na+Cl.',
         isValid: false,
       });
     }
@@ -72,7 +75,6 @@ export function CombinationTool({ selection, onClear, onRemove }: CombinationToo
       <div className="combine-panel">
         <h2>Element Combination Lab</h2>
         <p className="hint">Select 2–4 elements from the sidebar or table, then combine them to discover compounds.</p>
-
         <div className="selection-area">
           {selection.length === 0 ? (
             <div className="empty-state">No elements selected yet. Use "Add to Combine" on any element.</div>
@@ -88,16 +90,10 @@ export function CombinationTool({ selection, onClear, onRemove }: CombinationToo
             </div>
           )}
         </div>
-
         <div className="combine-actions">
-          <button className="btn-combine" disabled={!canCombine} onClick={attemptCombine}>
-            Combine Elements
-          </button>
-          <button className="btn-clear" onClick={() => { onClear(); setResult(null); }} disabled={selection.length === 0}>
-            Clear
-          </button>
+          <button className="btn-combine" disabled={!canCombine} onClick={attemptCombine}>Combine Elements</button>
+          <button className="btn-clear" onClick={() => { onClear(); setResult(null); }} disabled={selection.length === 0}>Clear</button>
         </div>
-
         {result && (
           <div className={`result-card ${result.isValid ? 'valid' : 'unknown'}`}>
             <h3>{result.name}</h3>
@@ -106,18 +102,17 @@ export function CombinationTool({ selection, onClear, onRemove }: CombinationToo
           </div>
         )}
       </div>
-
       <div className="combine-tips">
         <h3>Try these combinations</h3>
         <ul>
           <li>H + O → Water</li>
           <li>Na + Cl → Table salt</li>
-          <li>Mg + O → Magnesium oxide</li>
-          <li>Si + O → Silicon dioxide</li>
-          <li>C + O → Carbon oxides</li>
-          <li>Cl + Cl → Chlorine gas</li>
+          <li>Fe + O → Iron oxide (rust)</li>
+          <li>Cu + O → Copper oxide</li>
+          <li>Ti + O → Titanium dioxide</li>
+          <li>Zn + O → Zinc oxide</li>
         </ul>
-        <p className="note">More compounds and reaction animations will be added as the project grows.</p>
+        <p className="note">36 elements (H–Kr) available. More periods can be added later.</p>
       </div>
     </div>
   );
