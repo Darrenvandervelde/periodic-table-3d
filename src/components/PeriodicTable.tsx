@@ -30,6 +30,9 @@ const positions: Record<number, { row: number; col: number }> = {
   16: { row: 3, col: 16 },
   17: { row: 3, col: 17 },
   18: { row: 3, col: 18 },
+  // Period 4 s-block
+  19: { row: 4, col: 1 },
+  20: { row: 4, col: 2 },
 };
 
 export function PeriodicTable({ elements, selected, onSelect }: PeriodicTableProps) {
