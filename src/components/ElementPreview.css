@@ -42,7 +42,7 @@
   color: var(--text-secondary);
 }
 
-.info-item value {
+.info-item .value {
   font-size: 1rem;
   font-weight: 500;
 }
